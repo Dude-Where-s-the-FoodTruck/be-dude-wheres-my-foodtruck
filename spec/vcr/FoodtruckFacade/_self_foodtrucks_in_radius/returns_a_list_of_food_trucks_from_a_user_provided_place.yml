@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=formatted_address,name,geometry&input=Denver&inputtype=textquery&key=<google_api_key>
+    uri: https://maps.googleapis.com/maps/api/place/findplacefromtext/json?fields=formatted_address%2Cname%2Cgeometry&input=Denver&inputtype=textquery&key=<google_api_key>
     body:
       encoding: US-ASCII
       string: ''
