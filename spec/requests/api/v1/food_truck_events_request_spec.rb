@@ -91,7 +91,7 @@ RSpec.describe 'endpoints for food truck event creation/updating' do
     expect(new_event[:attributes][:city]).to eq("Everett")
   end
 
-  it 'will respond with the appropriate error code if an invalid truck is sent', :vcr do
+  it 'will respond with the appropriate error code if an invalid truck is sent', vcr: { match_requests_on: [:method] } do
     event_params = {  event_date: "2023-03-31",
                       location: "6631 Beverly Blvd",
                       start_time: "10:41:01",
