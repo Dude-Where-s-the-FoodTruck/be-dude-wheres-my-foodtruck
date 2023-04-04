@@ -9,6 +9,7 @@ class Api::V1::FoodTrucksController < ApplicationController
   end
 
   def show
+    Event.delete_old
     truck = FoodTruck.find(params[:id])
     render json: FoodTruckSerializer.new(truck)
   end

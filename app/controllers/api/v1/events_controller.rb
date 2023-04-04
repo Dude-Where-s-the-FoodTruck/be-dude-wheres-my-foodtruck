@@ -8,7 +8,7 @@ class Api::V1::EventsController < ApplicationController
     if Event.update_with_data(params[:id], event_params, params[:location] ||= nil)
       render json: EventSerializer.new(Event.find(params[:id]))
     else
-      render json: { error: "Location Invalid" }, status: 422
+      render_unprocessable_entity_response(exception)
     end
   end
 
