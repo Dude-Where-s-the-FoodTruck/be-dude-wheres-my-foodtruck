@@ -11,10 +11,11 @@ role :app, %w{deploy_2@13.59.241.134}
 role :web, %w{deploy_2@13.59.241.134}
 role :db,  %w{deploy_2@13.59.241.134}
 set :ssh_options, {
-   keys: %w(/Users/bryanflanagan/.ssh/foodtruck_key_pair.pem),
-   forward_agent: false,
-   auth_methods: %w(publickey password)
- }
+  keys: %w(/Users/bryanflanagan/.ssh/foodtruck_key_pair.pem),
+  forward_agent: false,
+  auth_methods: %w(publickey password)
+}
+set :branch, "main"
 
 # role-based syntax
 # ==================
