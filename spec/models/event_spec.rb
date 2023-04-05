@@ -14,4 +14,17 @@ RSpec.describe Event, type: :model do
     it { should validate_presence_of :end_time }
     it { should validate_presence_of :description }
   end
+
+  it 'has a class method to delete old records' do
+    Event.delete_all
+    truck = create(:food_truck)
+    create(:event, event_date: Date.today.days_ago(2), food_truck_id: truck.id)
+    create_list(:event, 3, food_truck_id: truck.id)
+    create(:event, event_date: Date.today.days_ago(24), food_truck_id: truck.id)
+
+    expect(Event.count).to eq(5)
+    Event.delete_old
+    expect(Event.count).to eq(3)
+    expect(Event.where("event_date < ?", Date.yesterday)).to eq([])
+  end
 end
