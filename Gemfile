@@ -12,7 +12,7 @@ gem 'rails', '~> 6.1', '>= 6.1.7.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.4', '>= 1.4.6'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 6.2.1'
 gem 'nokogiri', '~> 1.14', '>= 1.14.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
