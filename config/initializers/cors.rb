@@ -15,7 +15,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
   end
 
   allow do
-    origins 'https://fe-dude-wheres-the-food-truck.vercel.app/'
+    origins 'https://fe-dude-wheres-the-food-truck.vercel.app'
 
     resource '*',
       headers: :any,
