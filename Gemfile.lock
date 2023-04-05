@@ -131,6 +131,7 @@ GEM
     marcel (1.0.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.1)
     minitest (5.18.0)
     msgpack (1.7.0)
     net-imap (0.3.4)
@@ -150,7 +151,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
-    nokogiri (1.14.2-x86_64-linux)
+    nokogiri (1.14.2-x86_64-darwin)
       racc (~> 1.4)
     pg (1.4.6)
     pry (0.14.2)
@@ -252,7 +253,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
-  x86_64-linux
+  x86_64-unknown
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
