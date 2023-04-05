@@ -91,6 +91,22 @@ RSpec.describe 'endpoints for food truck event creation/updating' do
     expect(new_event[:attributes][:city]).to eq("Everett")
   end
 
+  it 'will respond with the appropriate error code if an invalid truck is sent', vcr: { match_requests_on: [:method] } do
+    event_params = {  event_date: "2023-03-31",
+                      location: "6631 Beverly Blvd",
+                      start_time: "10:41:01",
+                      end_time: "12:41:01",
+                      description: "We are going to be here selling food",
+                      city: "Everett"
+                    }
+
+    post api_v1_food_truck_events_path("L"), params: event_params
+
+    expect(response.status).to eq(404)
+    error = JSON.parse(response.body, symbolize_names: true)
+    expect(error).to eq({error: "Couldn't find FoodTruck with 'id'=L"})
+  end
+
   it 'will return an error when patching the location and the location is invalid', vcr: { match_requests_on: [:method] } do
     event = create(:event, food_truck_id: @foodtruck.id)
     update_params = {  
