@@ -272,7 +272,7 @@ DEPENDENCIES
   nokogiri (~> 1.14, >= 1.14.2)
   pg (~> 1.4, >= 1.4.6)
   pry
-  puma (>= 4.3.12)
+  puma (= 6.2.1)
   rack-cors
   rails (~> 6.1, >= 6.1.7.3)
   rspec-rails
