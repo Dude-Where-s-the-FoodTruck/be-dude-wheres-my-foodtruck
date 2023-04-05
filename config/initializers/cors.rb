@@ -13,4 +13,12 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete]
   end
+
+  allow do
+    origins 'https://fe-dude-wheres-the-food-truck.vercel.app/'
+
+    resource '*',
+      headers: :any,
+      methods: [:get, :post, :put, :patch, :delete]
+  end
 end
