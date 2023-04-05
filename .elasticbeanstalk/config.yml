@@ -1,0 +1,24 @@
+branch-defaults:
+  aws_eb:
+    environment: food-truck-be-dev2
+  main:
+    environment: food-truck-be-dev
+environment-defaults:
+  Foodtruckbe-env:
+    branch: null
+    repository: null
+  food-truck-be-dev:
+    branch: null
+    repository: null
+global:
+  application_name: food_truck_be
+  default_ec2_keyname: null
+  default_platform: Ruby 3.0 running on 64bit Amazon Linux 2
+  default_region: us-east-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: eb-cli
+  sc: git
+  workspace_type: Application
