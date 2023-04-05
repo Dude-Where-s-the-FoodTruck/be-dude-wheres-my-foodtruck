@@ -61,6 +61,7 @@ group :development do
   # gem 'capistrano-chruby'
   gem 'capistrano-rbenv'
   # gem 'capistrano-rvm'
+  gem 'nokogiri', '~> 1.14', '>= 1.14.2'
 end
 
 
