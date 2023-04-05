@@ -13,6 +13,7 @@ gem 'rails', '~> 6.1', '>= 6.1.7.3'
 gem 'pg', '~> 1.4', '>= 1.4.6'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
+gem 'nokogiri', '~> 1.14', '>= 1.14.2'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -24,7 +25,7 @@ gem 'puma', '~> 3.11'
 # gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -55,6 +56,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'capistrano', '~> 3.11'
+  gem 'capistrano-rails', '~> 1.4'
+  gem 'capistrano-passenger', '~> 0.2.0'
+  # gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'  
+  gem 'capistrano-rvm'
 end
 
 

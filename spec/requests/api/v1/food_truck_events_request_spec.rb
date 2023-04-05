@@ -106,4 +106,21 @@ RSpec.describe 'endpoints for food truck event creation/updating' do
     error = JSON.parse(response.body, symbolize_names: true)
     expect(error).to eq({error: "Couldn't find FoodTruck with 'id'=L"})
   end
+
+  it 'will return an error when patching the location and the location is invalid', vcr: { match_requests_on: [:method] } do
+    event = create(:event, food_truck_id: @foodtruck.id)
+    update_params = {  
+                      location: "123 Happytown Lane",
+                      city: "Canada, eh"
+                    }
+
+    patch api_v1_food_truck_event_path(@foodtruck.id, event.id), params: update_params
+
+    expect(response).to_not be_successful
+
+    errors = JSON.parse(response.body, symbolize_names: true)
+    
+    expect(response.status).to eq(422)
+    expect(errors[:error]).to eq({:location=>["Invalid Location"]})
+  end
 end
