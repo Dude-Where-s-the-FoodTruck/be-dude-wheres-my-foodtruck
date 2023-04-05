@@ -34,6 +34,7 @@ gem 'jsonapi-serializer'
 gem 'bundler',  '~> 2.4', '>= 2.4.10'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
+gem 'nokogiri', '~> 1.14', '>= 1.14.2'
 
 group :test do
   gem 'shoulda-matchers'
@@ -61,7 +62,6 @@ group :development do
   # gem 'capistrano-chruby'
   gem 'capistrano-rbenv'
   # gem 'capistrano-rvm'
-  gem 'nokogiri', '~> 1.14', '>= 1.14.2'
 end
 
 
