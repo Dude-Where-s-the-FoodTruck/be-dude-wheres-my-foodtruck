@@ -257,7 +257,7 @@ DEPENDENCIES
   capistrano (~> 3.16)
   capistrano-passenger (~> 0.2.0)
   capistrano-rails (~> 1.6)
-  capistrano-rbenv (~> 2.1, >= 2.1.4)
+  capistrano-rbenv
   dotenv-rails
   factory_bot_rails
   faker
@@ -284,4 +284,4 @@ RUBY VERSION
    ruby 3.0.5p211
 
 BUNDLED WITH
-   2.2.33
+   2.4.10
