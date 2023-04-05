@@ -2,13 +2,17 @@
 lock "~> 3.17.2"
 
 set :application, "be_dude_wheres_the_food_truck"
-set :repo_url, "https://github.com/Dude-Where-s-the-FoodTruck/be-dude-wheres-my-foodtruck.git"
+set :repo_url, "git@github.com:Dude-Where-s-the-FoodTruck/be-dude-wheres-my-foodtruck.git"
 
+# set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
+# set :rvm_ruby_version, '3.0.5'
+# set :rbenv_ruby_version, '1.2.0'
+# set :passenger_restart_with_touch, true
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-
+set :rbenv_prefix, '/usr/bin/rbenv exec'
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/var/www/be_dude_wheres_the_food_truck"
+set :deploy_to, "/home/deploy/#{fetch :application}"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh

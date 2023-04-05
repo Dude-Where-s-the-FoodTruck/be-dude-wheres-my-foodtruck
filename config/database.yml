@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: Food_Truck_BE_production
-  username: Food_Truck_BE
+  database: be_dude_wheres_the_food_truck_production
+  username: deploy_2
   password: <%= ENV['FOOD_TRUCK_BE_DATABASE_PASSWORD'] %>
+  

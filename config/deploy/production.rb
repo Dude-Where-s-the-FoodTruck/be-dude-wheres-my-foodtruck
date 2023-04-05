@@ -3,11 +3,18 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 
-server "13.59.241.134", user: "deploy_2", roles: %w{app db web}, my_property: :my_value
-server "13.59.241.134", user: "deploy_2", roles: %w{app web}, other_property: :other_value
-server "db.13.59.241.134", user: "deploy_2", roles: %w{db}
+# server "13.59.241.134", user: "deploy_2", roles: %w{app db web}, my_property: :my_value
+# server "13.59.241.134", user: "deploy_2", roles: %w{app web}, other_property: :other_value
+# server "db.13.59.241.134", user: "deploy_2", roles: %w{db}
 
-
+role :app, %w{deploy_2@13.59.241.134}
+role :web, %w{deploy_2@13.59.241.134}
+role :db,  %w{deploy_2@13.59.241.134}
+set :ssh_options, {
+   keys: %w(/Users/bryanflanagan/.ssh/foodtruck_key_pair.pem),
+   forward_agent: false,
+   auth_methods: %w(publickey password)
+ }
 
 # role-based syntax
 # ==================
@@ -41,11 +48,28 @@ server "db.13.59.241.134", user: "deploy_2", roles: %w{db}
 #
 # Global options
 # --------------
-#  set :ssh_options, {
-#    keys: %w(/home/user_name/.ssh/id_rsa),
-#    forward_agent: false,
-#    auth_methods: %w(password)
-#  }
+ set :user, "deploy_2"
+ set :ssh_options, {
+  #  keys: %w(/home/user_name/.ssh/id_rsa),
+    keys: %w(/users/bryanflanagan/.ssh/foodtruck_key_pair.pem),
+    forward_agent: true,
+    auth_methods: %w(publickey)
+  }
+
+  server "13.59.241.134",
+    user: fetch(:user)
+    # roles: %w[be_dude_wheres_the_food_truck] 
+
+#  set :ssh_options, { 
+#       forward_agent: true,    
+#       auth_methods: %w[publickey],   
+#       keys: %w[/Users/foodtruck_key_pair.pem] 
+#       } 
+#   set :ssh_options, {
+#       forward_agent: true,    
+#       auth_methods: %w[publickey],   
+#       keys: %w[/Users/edward/.ssh/id_rsa] 
+#       }
 #
 # The server-based syntax can be used to override options:
 # ------------------------------------
