@@ -20,7 +20,9 @@ class Event < ApplicationRecord
 
   def self.update_with_data(event_id, update_params, location)
     event = Event.find(event_id)
-    if FoodtruckFacade.get_place_search_details("#{location}, " + "#{update_params[:city]}") == "No Results Found"
+    if location.nil?
+      event.update(update_params)
+    elsif FoodtruckFacade.get_place_search_details("#{location}, " + "#{update_params[:city]}") == "No Results Found"
       event.errors.add(:location, "Invalid Location")
       raise ActiveRecord::RecordInvalid.new(event)
     elsif location != nil
