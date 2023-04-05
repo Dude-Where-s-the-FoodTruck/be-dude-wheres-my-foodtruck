@@ -21,7 +21,8 @@ class Event < ApplicationRecord
   def self.update_with_data(event_id, update_params, location)
     event = Event.find(event_id)
     if FoodtruckFacade.get_place_search_details("#{location}, " + "#{update_params[:city]}") == "No Results Found"
-      false
+      event.errors.add(:location, "Invalid Location")
+      raise ActiveRecord::RecordInvalid.new(event)
     elsif location != nil
       event.update(update_params)
       place = FoodtruckFacade.get_place_search_details("#{location}, " + "#{update_params[:city]}")
@@ -30,5 +31,9 @@ class Event < ApplicationRecord
     else
       event.update(update_params)
     end
+  end
+
+  def self.delete_old
+    self.where("event_date < ?", Date.yesterday).delete_all
   end
 end

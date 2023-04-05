@@ -105,6 +105,6 @@ RSpec.describe 'endpoints for food truck event creation/updating' do
     errors = JSON.parse(response.body, symbolize_names: true)
     
     expect(response.status).to eq(422)
-    expect(errors[:error]).to eq("Location Invalid")
+    expect(errors[:error]).to eq({:location=>["Invalid Location"]})
   end
 end
