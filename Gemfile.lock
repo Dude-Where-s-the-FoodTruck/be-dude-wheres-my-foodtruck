@@ -254,6 +254,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
+  bundler (~> 2.4, >= 2.4.10)
   byebug
   capistrano (~> 3.16)
   capistrano-passenger (~> 0.2.0)
