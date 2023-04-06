@@ -60,7 +60,10 @@ set :branch, "main"
   server "13.59.241.134",
     user: fetch(:user)
     # roles: %w[be_dude_wheres_the_food_truck] 
-
+    system("bundle lock --add-platform ruby")
+    system("bundle lock --add-platform x86_64-linux")
+    system("bundle update")
+    system("bundle install")
 #  set :ssh_options, { 
 #       forward_agent: true,    
 #       auth_methods: %w[publickey],   
