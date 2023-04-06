@@ -62,7 +62,7 @@ set :branch, "main"
     # roles: %w[be_dude_wheres_the_food_truck] 
     
     system("bundle lock --add-platform ruby --add-platform x86_64-linux")
-    secret_key_base: ENV["secret_base_key"]
+    set :secret_key_base, ENV["secret_base_key"]
 
 
     # system("bundle update")
