@@ -124,10 +124,11 @@ This repo is the back end for such a website. It exposes custom endpoints for cr
 
 | Code    | Status    | Description   |
 | :---    | :---      | :---          |
-| 200     |    OK     |               |
-| 404     | Not Found |               |
-| 500     |           |               |
-|         |           |               |
+| 200     |    OK     | Everything is good. |
+| 422     | Inaccessible Entity | Primarily when a location that doesn't exist is entered by a user when creating an event. |
+| 404     | Not Found | Foodtruck or event request not found. |
+| 500     | Internal Error | The request failed due to a bug. |
+
 
 Root directory: 'http://localhost:3000/api/v1'
 
