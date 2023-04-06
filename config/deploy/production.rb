@@ -62,6 +62,7 @@ set :branch, "main"
     # roles: %w[be_dude_wheres_the_food_truck] 
     
     system("bundle lock --add-platform ruby --add-platform x86_64-linux")
+    
     # system("bundle update")
     # system("bundle install")
 
